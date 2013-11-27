@@ -13,7 +13,7 @@ class OldGenKindle(object):
     type_info = "- (.*?)\|"
     time_format = "%A, %B %d, %Y, %I:%M %p"
     clip_type = "(Highlight|Note|Bookmark) "
-    page = "Page ([0-9]{1,})"
+    page = "(p|P)age ([0-9]{1,})"
     location = "Loc. ([0-9]+\-[0-9]+|[0-9]+) "
     added_on = "Added on (.*?)\n"
     content = "Added on .*?\n(.*)"

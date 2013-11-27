@@ -78,19 +78,22 @@ class ClippingLoader(object):
 
             # get the clip type, highlight or note.
             type_pattern = re.search(self.patterns.clip_type, type_info)
+
             if type_pattern:
                 type_dict.update({
                     "type": type_pattern.group(1),
                 })
 
                 page_pattern = re.search(self.patterns.page, type_info)
+
                 if page_pattern:
                     type_dict.update({
-                        'page': int(page_pattern.group(1)),
+                        'page': int(page_pattern.group(2)),
                     })
 
+
                 # location
-                location_pattern = re.search(self.patterns.location, item if page_pattern else type_info)
+                location_pattern = re.search(self.patterns.location, item)
 
                 if location_pattern:
                     type_dict.update({
