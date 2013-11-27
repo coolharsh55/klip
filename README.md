@@ -2,6 +2,11 @@
 
 parser module for the amazon kindle's clippings.txt file.
 
+#### installation
+```bash
+$ (sudo) pip install klip
+```
+
 #### usage
 
 clippings.txt
