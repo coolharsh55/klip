@@ -47,7 +47,6 @@ class KlipTests(unittest.TestCase):
         self.assertEqual(len(clip_datas[0]), 3)
         self.assertEqual(len(clip_datas[1]), 4)
         self.assertEqual(len(clip_datas[2]), 2)
-    from klip import load, load_from_file
 
     def test_authors(self):
 
