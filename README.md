@@ -45,8 +45,8 @@ Make sure everyone knows the cost of requirements
     'content': 'Make sure everyone knows the cost of requirements',
     'meta': {
         'type': 'Highlight',
-        'page': None,
-        'location': None
+        'page': 73,
+        'location': '1105-1106'
     },
     'author': 'Steve McConnell',
     'added_on': datetime.datetime(2013, 11, 27, 11, 10, 25),
