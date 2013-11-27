@@ -10,7 +10,6 @@ class OldGenKindle(object):
     ]
     title = "([^\-].*)"
     author_in_title = "\((.*?)\)"
-    # -" Note on Page 20 | Added on Monday, November 14, 2011, 10:27 AM
     type_info = "- (.*?)\|"
     time_format = "%A, %B %d, %Y, %I:%M %p"
     clip_type = "(Highlight|Note|Bookmark) "
