@@ -1,0 +1,10 @@
+Regular Expressions Cookbook (Jan Goyvaerts and Steven Levithan)
+- Your Note on Page 41 | Location 391 | Added on Wednesday, November 27, 2013 10:52:55 AM
+
+regex should not be allowed
+==========
+﻿Das Kapital (Didier Drogba)
+- Your Highlight on Page 41 | Location 390-391 | Added on Wednesday, November 27, 2013 10:52:56 AM
+
+All a practical programmer needs to remember from this note is that some ivory tower computer scientists get upset about their well-defined terminology being overloaded with technology that’s far more useful in the real world.
+==========

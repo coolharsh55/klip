@@ -1,0 +1,15 @@
+The Mythical Man Month (Frederick P. Brooks)
+- Your Highlight Location 181-182 | Added on Tuesday, November 19, 2013 1:23:50 PM
+
+Good cooking takes time. If you are made to wait, it is to serve you better, and to please you.
+==========
+﻿The Mythical Man Month (Frederick P. Brooks)
+- Your Highlight Location 529-530 | Added on Wednesday, November 20, 2013 1:30:12 PM
+
+An architect's first work is apt to be spare and clean. He knows he doesn't know what he's doing, so he does it carefully and with great restraint.
+==========
+﻿Two Scoops of Django: Best Practices for Django 1.5 (Daniel Greenfeld;Audrey Roy)
+- Your Highlight Location 1006-1006 | Added on Wednesday, November 20, 2013 2:06:26 PM
+
+django-model-utils to handle common patterns like TimeStampedModel.
+==========

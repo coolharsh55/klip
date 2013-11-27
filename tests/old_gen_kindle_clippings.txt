@@ -1,0 +1,20 @@
+Learning_Python_Fourth_Edition (Mark Lutz)
+- Highlight on Page 20 | Added on Monday, November 14, 2011, 10:24 AM
+
+: you can do everything in Python that you can in Perl, but you can read your code after you do it
+==========
+Learning_Python_Fourth_Edition (Mark Lutz)
+- Note on Page 20 | Added on Monday, November 14, 2011, 10:25 AM
+
+python vs. perl
+==========
+Learning_Python_Fourth_Edition (Mark Lutz)
+- Highlight on Page 20 | Added on Monday, November 14, 2011, 10:26 AM
+
+the creator of the Perl language is a linguist, and its design reflects this heritage. There are many ways to accomplish the same tasks in Perl, and language constructs interact in context-sensitive and sometimes quite subtle ways—much like natural language
+==========
+Learning_Python_Second_Edition (Timu Eren)
+- Note on Page 20 | Added on Monday, November 14, 2011, 10:27 AM
+
+perl philosophy
+==========
