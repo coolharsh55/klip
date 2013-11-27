@@ -31,6 +31,7 @@ Make sure everyone knows the cost of requirements
 >>> load(clippings)
 
 >>> # you can use load_file("clippings.txt") if you prefer.
+>>> # for the old generation kindles use load(clippings, device="OldGenKindle")
 
 ```
 
