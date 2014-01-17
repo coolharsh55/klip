@@ -13,7 +13,10 @@ class ClippingLoader(object):
 
     def __init__(self, content=None, device="Paperwhite"):
 
-        self.patterns = getattr(devices, device)()
+        if isinstance(device, basestring):
+            self.patterns = getattr(devices, device)()
+        elif issubclass(device, devices.BaseKindle):
+            self.patterns = device()
 
         if content:
             self.load_from_string(content)
@@ -90,7 +93,6 @@ class ClippingLoader(object):
                     type_dict.update({
                         'page': int(page_pattern.group(2)),
                     })
-
 
                 # location
                 location_pattern = re.search(self.patterns.location, item)

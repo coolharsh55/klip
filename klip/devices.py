@@ -1,7 +1,20 @@
 # -*- coding: utf8 -*-
 
 
-class OldGenKindle(object):
+class BaseKindle(object):
+    noises = None
+    title = None
+    author_in_title = None
+    type_info = None
+    time_format = None
+    clip_type = None
+    page = None
+    location = None
+    added_on = None
+    content = None
+
+
+class OldGenKindle(BaseKindle):
     noises = [
         "\xef\xbb\xbf",
         "\xe2\x80\x94",
