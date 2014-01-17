@@ -49,7 +49,7 @@ class ClippingLoader(object):
     def get_added_on(self, item):
         added_on_pattern = re.search(self.patterns.added_on, item)
         if added_on_pattern:
-            timestamp = time.strptime(added_on_pattern.group(1), self.patterns.time_format)
+            timestamp = time.strptime(added_on_pattern.group(1).strip(), self.patterns.time_format)
             _date = datetime.datetime.fromtimestamp(time.mktime(timestamp))
 
             return _date
