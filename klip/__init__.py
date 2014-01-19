@@ -1,4 +1,5 @@
-# -*- coding: utf8 -*-
+# -*- coding: utf-8 -*-
+
 from parser import load, load_from_file
 
 __all__ = ['load', 'load_from_file', ]
