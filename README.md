@@ -1,61 +1,59 @@
-#### klip
+# klip
 
-parser module for the amazon kindle's clippings.txt file.
+A simple parser for Amazon Kindle
 
-#### installation
+## clippings.txt
+
+Kindle annotations are stored in a file called `clippings.txt` inside the `documents` folder.
+This module acts on this file and extracts the annotations. You need to know which kindle
+version you are using, and use the corresponding parser.
+
+## installation
 ```bash
-$ (sudo) pip install klip
+pip install klip
 ```
 
-#### usage
+## usage
 
-clippings.txt
-```
-﻿The Mythical Man Month (Frederick P. Brooks)
-- Your Highlight Location 181-182 | Added on Tuesday, November 19, 2013 1:23:50 PM
+### identifying device version
 
-Good cooking takes time.
-==========
-Code Complete, Second Edition (Steve McConnell)
-- Your Highlight on page 73 | Location 1105-1106 | Added on Wednesday, November 27, 2013 11:10:25 AM
+In your kindle settings, or about menu, find the kindle version displayed. For e.g., if it says
+*Kindle v4.x.x*, then the version is 4. Use the following table corresponding to the file
+`devices.py` to identify the string to use for your version.
 
-Make sure everyone knows the cost of requirements
-==========
+* Kindle Paperwhite: `Paperwhite`
+* Kindle Touch: `Touch`
+* Kindle 4: `Kindle4`
+* Kindle 1-3+: `OldGenKindle`
 
-```
+### load from file
 
 ```python
->>> from klip import load
-
->>> clippings = open('clippings.txt').read()
->>> load(clippings)
-
->>> # you can use load_file("clippings.txt") if you prefer.
->>> # for the old generation kindles use load(clippings, device="OldGenKindle")
-
+import klip
+data = klip.load_from_file('clippings.txt', 'Kindle4')
 ```
 
+### load
 
-```javascript
-[{
-    'content': 'Good cooking takes time.',
-    'meta': {
-        'type': 'Highlight',
-        'page': None,
-        'location': '181-182'
-    },
-    'author': 'Frederick P. Brooks',
-    'added_on': datetime.datetime(2013, 11, 19, 13, 23, 50),
-    'title': 'The Mythical Man Month'
-}, {
-    'content': 'Make sure everyone knows the cost of requirements',
-    'meta': {
-        'type': 'Highlight',
-        'page': 73,
-        'location': '1105-1106'
-    },
-    'author': 'Steve McConnell',
-    'added_on': datetime.datetime(2013, 11, 27, 11, 10, 25),
-    'title': 'Code Complete, Second Edition'
-}]
+```python
+with open('clippings.txt', 'r') as f:
+	data = klip.load(f.read())
+```
+
+### data format of clippings
+
+```json
+[
+	{
+		"content": "Good cooking takes time.",
+		"meta": {
+			"type": "Highlight",
+			"page": None,
+			"location": "181-182"
+		},
+		"author": "Frederick P. Brooks",
+		"added_on": datetime.datetime(2013, 11, 19, 13, 23, 50),
+		"title": "The Mythical Man Month"
+	}
+]
 ```

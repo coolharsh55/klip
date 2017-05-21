@@ -1,10 +1,8 @@
-# -*- coding: utf-8 -*-
-
 import re
 import datetime
 import time
 
-import devices
+from . import devices
 
 
 class ClippingLoader(object):
@@ -13,7 +11,7 @@ class ClippingLoader(object):
 
     def __init__(self, content=None, device="Paperwhite"):
 
-        if isinstance(device, basestring):
+        if isinstance(device, str):
             self.patterns = getattr(devices, device)()
         elif issubclass(device, devices.BaseKindle):
             self.patterns = device()
@@ -42,17 +40,22 @@ class ClippingLoader(object):
         title_pattern = re.search(self.patterns.title, item)
 
         if title_pattern:
-            author_pattern = re.findall(self.patterns.author_in_title, title_pattern.group(1))
+            author_pattern = re.findall(
+                self.patterns.author_in_title, title_pattern.group(1))
             if author_pattern:
                 author = self.remove_noise(author_pattern[-1])
-                title = self.remove_noise(title_pattern.group(1).replace("({})".format(author_pattern[-1]), ''))
+                title = self.remove_noise(
+                    title_pattern.group(1).replace(
+                        "({})".format(author_pattern[-1]), ''))
 
-        return title.strip(), author.strip()
+        return str(title.strip()), str(author.strip())
 
     def get_added_on(self, item):
         added_on_pattern = re.search(self.patterns.added_on, item)
         if added_on_pattern:
-            timestamp = time.strptime(added_on_pattern.group(1).strip(), self.patterns.time_format)
+            timestamp = time.strptime(
+                added_on_pattern.group(1).strip(),
+                self.patterns.time_format)
             _date = datetime.datetime.fromtimestamp(time.mktime(timestamp))
 
             return _date
@@ -64,7 +67,8 @@ class ClippingLoader(object):
         return data
 
     def get_content(self, item):
-        content_pattern = re.search(self.patterns.content, item, flags=re.DOTALL | re.MULTILINE)
+        content_pattern = re.search(
+            self.patterns.content, item, flags=re.DOTALL | re.MULTILINE)
         if content_pattern:
             return self.remove_noise(content_pattern.group(1))
 

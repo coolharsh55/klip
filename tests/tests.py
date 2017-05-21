@@ -1,14 +1,7 @@
-# -*- coding: utf8 -*-
-
-
 import datetime
+import unittest
 
-try:
-    import unittest2 as unittest
-except ImportError:
-    import unittest
-
-from klip import load, load_from_file
+from klip import load_from_file
 
 
 class KlipTests(unittest.TestCase):
@@ -25,11 +18,19 @@ class KlipTests(unittest.TestCase):
             clip_datas.append(clip_data)
 
             # old gen kindles
-            clip_data = load_from_file('tests/old_gen_kindle_clippings.txt', device="OldGenKindle")
+            clip_data = load_from_file(
+                'tests/old_gen_kindle_clippings.txt',
+                device="OldGenKindle")
             clip_datas.append(clip_data)
 
             # kindle touch
-            clip_data = load_from_file('tests/touch_clippings.txt', device="Touch")
+            clip_data = load_from_file(
+                'tests/touch_clippings.txt', device="Touch")
+            clip_datas.append(clip_data)
+
+            # kindle 4
+            clip_data = load_from_file(
+                'tests/kindle4_clippings.txt', device='Kindle4')
             clip_datas.append(clip_data)
 
             self.clip_datas = clip_datas
@@ -47,31 +48,47 @@ class KlipTests(unittest.TestCase):
         self.assertEqual(len(clip_datas[0]), 3)
         self.assertEqual(len(clip_datas[1]), 4)
         self.assertEqual(len(clip_datas[2]), 2)
+        self.assertEqual(len(clip_datas[3]), 2)
 
     def test_authors(self):
 
         clip_data = self._get_clip_datas()
 
         for item in clip_data[0]:
-            assert(item["author"] in ["Daniel Greenfeld;Audrey Roy", "Frederick P. Brooks"])
+            assert(
+                item["author"] in ["Daniel Greenfeld;Audrey Roy",
+                "Frederick P. Brooks"])
 
         for item in clip_data[1]:
             assert(item["author"] in ["Mark Lutz", "Timu Eren"])
 
         for item in clip_data[2]:
-            assert(item["author"] in ["Jan Goyvaerts and Steven Levithan", "Didier Drogba"])
+            assert(
+                item["author"] in ["Jan Goyvaerts and Steven Levithan", 
+                "Didier Drogba"])
+
+        for item in clip_data[3]:
+            assert(item["author"] in ["James Joyce", "Hope Jahren"])
 
     def test_books(self):
         clip_data = self._get_clip_datas()
-
         for item in clip_data[0]:
-            assert(item["title"] in ["The Mythical Man Month", "Two Scoops of Django: Best Practices for Django 1.5"])
+            assert(item["title"] in [
+                "The Mythical Man Month",
+                "Two Scoops of Django: Best Practices for Django 1.5"])
 
         for item in clip_data[1]:
-            assert(item["title"] in ["Learning_Python_Fourth_Edition", "Learning_Python_Second_Edition"])
+            assert(item["title"] in [
+                "Learning_Python_Fourth_Edition",
+                "Learning_Python_Second_Edition"])
 
         for item in clip_data[2]:
-            assert(item["title"] in ["Regular Expressions Cookbook", "Das Kapital"])
+            assert(item["title"] in [
+                "Regular Expressions Cookbook",
+                "Das Kapital"])
+
+        for item in clip_data[3]:
+            assert(item["title"] in ["Dubliners", "Lab Girl"])
 
     def test_content(self):
         clip_data = self._get_clip_datas()
@@ -87,6 +104,10 @@ class KlipTests(unittest.TestCase):
         for item in clip_data[2]:
             self.assertIsNotNone(item["content"])
             assert len(item["content"]) > 10
+        
+        for item in clip_data[3]:
+            self.assertIsNotNone(item["content"])
+            assert len(item["content"]) > 10
 
     def test_added_on(self):
         clip_data = self._get_clip_datas()
@@ -100,6 +121,10 @@ class KlipTests(unittest.TestCase):
             assert isinstance(item["added_on"], datetime.datetime)
 
         for item in clip_data[2]:
+            self.assertIsNotNone(item["added_on"])
+            assert isinstance(item["added_on"], datetime.datetime)
+
+        for item in clip_data[3]:
             self.assertIsNotNone(item["added_on"])
             assert isinstance(item["added_on"], datetime.datetime)
 
