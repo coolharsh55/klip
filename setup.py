@@ -2,11 +2,11 @@ from distutils.core import setup
 
 setup(
     name='klip',
-    version='0.2',
+    version='0.3',
     packages=['klip'],
-    url='http://github.com/emre/klip',
+    url='http://github.com/coolharsh55/klip',
     license='MIT',
-    author='Emre Yilmaz',
-    author_email='mail@emreyilmaz.me',
-    description='parser module for the amazon kindle\'s clippings.txt file.'
+    author='Harshvardhan Pandit',
+    author_email='me@harshp.com',
+    description='parse annotations/highlights from Amazon Kindle'
 )
